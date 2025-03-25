@@ -24,7 +24,7 @@ DEFAULT_CONFIG: BaseConfig = {
     "SCRAPER": "bs",
     "MAX_SCRAPER_WORKERS": 15,
     "MAX_SUBTOPICS": 3,
-    "LANGUAGE": "english",
+    "LANGUAGE": "chinese",
     "REPORT_SOURCE": "web",
     "DOC_PATH": "./my-docs",
     # Deep research specific settings

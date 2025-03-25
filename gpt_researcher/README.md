@@ -1,31 +1,42 @@
 # 🔎 GPT Researcher
-[![Official Website](https://img.shields.io/badge/Official%20Website-gptr.dev-blue?style=for-the-badge&logo=world&logoColor=white)](https://gptr.dev)
-[![Discord Follow](https://dcbadge.vercel.app/api/server/QgZXvJAccX?style=for-the-badge)](https://discord.com/invite/QgZXvJAccX)
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/assafelovic/gpt-researcher?style=social)](https://github.com/assafelovic/gpt-researcher)
-[![Twitter Follow](https://img.shields.io/twitter/follow/tavilyai?style=social)](https://twitter.com/tavilyai)
-[![PyPI version](https://badge.fury.io/py/gpt-researcher.svg)](https://badge.fury.io/py/gpt-researcher)
+[![官方网站](https://img.shields.io/badge/Official%20Website-gptr.dev-blue?style=for-the-badge&logo=world&logoColor=white)](https://gptr.dev)  
+[![Discord 关注](https://dcbadge.vercel.app/api/server/QgZXvJAccX?style=for-the-badge)](https://discord.com/invite/QgZXvJAccX)  
 
-**GPT Researcher is an autonomous agent designed for comprehensive online research on a variety of tasks.** 
+[![GitHub Repo 星标](https://img.shields.io/github/stars/assafelovic/gpt-researcher?style=social)](https://github.com/assafelovic/gpt-researcher)  
+[![Twitter 关注](https://img.shields.io/twitter/follow/tavilyai?style=social)](https://twitter.com/tavilyai)  
+[![PyPI 版本](https://badge.fury.io/py/gpt-researcher.svg)](https://badge.fury.io/py/gpt-researcher)  
 
-The agent can produce detailed, factual and unbiased research reports, with customization options for focusing on relevant resources, outlines, and lessons. Inspired by the recent [Plan-and-Solve](https://arxiv.org/abs/2305.04091) and [RAG](https://arxiv.org/abs/2005.11401) papers, GPT Researcher addresses issues of speed, determinism and reliability, offering a more stable performance and increased speed through parallelized agent work, as opposed to synchronous operations.
+**GPT Researcher 是一个自主代理，旨在对各种任务进行全面的在线研究。**  
 
-**Our mission is to empower individuals and organizations with accurate, unbiased, and factual information by leveraging the power of AI.**
+该代理可以生成详细、事实性且无偏见的研究报告，并提供自定义选项，以便专注于相关资源、大纲和要点。受近期 [Plan-and-Solve](https://arxiv.org/abs/2305.04091) 和 [RAG](https://arxiv.org/abs/2005.11401) 论文的启发，GPT Researcher 解决了速度、确定性和可靠性问题，通过代理并行工作提供更稳定的性能和更快的速度，而非同步操作。  
 
-#### PIP Package
-> **Step 0** - Install Python 3.11 or later. [See here](https://www.tutorialsteacher.com/python/install-python) for a step-by-step guide.
-> **Step 1** - install GPT Researcher package [PyPI page](https://pypi.org/project/gpt-researcher/)
+**我们的使命是利用 AI 的力量，为个人和组织提供准确、公正、事实性的信息。**  
+
+---
+
+### 📦 PIP 包安装
+
+> **步骤 0**：安装 Python 3.11 或更高版本。可参考[安装指南](https://www.tutorialsteacher.com/python/install-python)。  
+
+> **步骤 1**：安装 GPT Researcher 包：[PyPI 页面](https://pypi.org/project/gpt-researcher/)  
+
 ```bash
-$ pip install gpt-researcher
+pip install gpt-researcher
 ```
-> **Step 2** - Create .env file with your OpenAI Key and Tavily API key or simply export it
+
+> **步骤 2**：创建 `.env` 文件，添加你的 OpenAI Key 和 Tavily API Key，或直接导出环境变量：  
+
 ```bash
-$ export OPENAI_API_KEY={Your OpenAI API Key here}
+export OPENAI_API_KEY={你的 OpenAI API Key}
 ```
+
 ```bash
-$ export TAVILY_API_KEY={Your Tavily API Key here}
+export TAVILY_API_KEY={你的 Tavily API Key}
 ```
-> **Step 3** - Start Coding using GPT Researcher in your own code, example:
+
+> **步骤 3**：在代码中使用 GPT Researcher：  
+
 ```python
 from gpt_researcher import GPTResearcher
 import asyncio
@@ -37,23 +48,24 @@ async def get_report(query: str, report_type: str) -> str:
     return report
 
 if __name__ == "__main__":
-    query = "what team may win the NBA finals?"
+    query = "哪支球队可能赢得 NBA 总决赛？"
     report_type = "research_report"
 
     report = asyncio.run(get_report(query, report_type))
     print(report)
-
 ```
 
-### Customize the configuration (optional)
-This will override the default settings with your custom configuration. You can find all available configuration options in the [GPT Researcher documentation](https://docs.gptr.dev/docs/gpt-researcher/gptr/config).
+---
 
+### ⚙️ 自定义配置（可选）
 
-#### Using a Custom JSON Configuration
+你可以通过自定义配置文件来覆盖默认设置。所有配置选项可在 [GPT Researcher 文档](https://docs.gptr.dev/docs/gpt-researcher/gptr/config) 中找到。  
 
-If you want to modify the default configuration of GPT Researcher, you can create a custom JSON configuration file. This allows you to tailor the researcher's behavior to your specific needs. Here's how to do it:
+#### 使用自定义 JSON 配置  
 
-a. Create a JSON file (e.g., `your_config.json`) with your desired settings:
+如果你希望修改 GPT Researcher 的默认配置，可以创建一个自定义的 JSON 配置文件，以下是步骤：  
+
+**a.** 创建一个 JSON 文件（例如：`your_config.json`），写入你想要的配置：  
 
 ```json
 {
@@ -65,15 +77,17 @@ a. Create a JSON file (e.g., `your_config.json`) with your desired settings:
 }
 ```
 
-b. When initializing the GPTResearcher, pass the path to your custom configuration file:
+**b.** 初始化 GPTResearcher 时，传递自定义配置文件路径：  
 
 ```python
 researcher = GPTResearcher(query, report_type, config_path="your_config.json")
 ```
 
-#### Using Environment Variables
+---
 
-Alternatively, you can set up the same configuration using environment variables instead of a JSON file. Here's how the example from Part 1 would look in your `.env` file:
+#### 使用环境变量  
+
+你也可以通过环境变量来配置 GPT Researcher。创建 `.env` 文件，并添加以下内容：  
 
 ```
 RETRIEVERS=google
@@ -83,4 +97,4 @@ MAX_ITERATIONS=3
 MAX_SUBTOPICS=1
 ```
 
-Simply add these lines to your `.env` file, and GPT Researcher will use the environment variables to configure its behavior. This approach provides flexibility when deploying in different environments.
+GPT Researcher 会自动读取环境变量，从而配置行为。这种方式让你在不同环境下部署时更具灵活性。
